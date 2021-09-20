@@ -11,23 +11,29 @@ namespace Okulus.Promotions.Tests
     {
         private static IEnumerable<TestCaseData> promotionEngineTestCaseData = new[]
         {
-            new TestCaseData(new[]{("A", 1), ("B", 1), ("C", 1)})
+            new TestCaseData(new Cart(new CartItem[]{new("A", 1, 50), new("B", 1, 30), new("C", 1, 20)}))
                 .Returns(100)
                 .SetName("Scenario A"),
-            new TestCaseData(new[]{("A", 5), ("B", 5), ("C", 1)})
+            new TestCaseData(new Cart(new CartItem[]{new("A", 5, 50), new("B", 5, 30), new("C", 1, 20)}))
                 .Returns(370)
                 .SetName("Scenario B"),
-            new TestCaseData(new[]{("A", 3), ("B", 5), ("C", 1), ("D", 1)})
+            new TestCaseData(new Cart(new CartItem[]{new("A", 3, 50), new("B", 5, 30), new("C", 1, 20), new("D", 1, 15)}))
                 .Returns(280)
                 .SetName("Scenario C"),
         };
 
         [TestCaseSource(nameof(promotionEngineTestCaseData))]
-        public decimal ShouldCalculateTotalOrderValueAfterApplyingActivePromotion(
-            (string skuId, int quantity)[] items
-        )
+        public decimal ShouldCalculateTotalOrderValueAfterApplyingActivePromotion(ICart cart)
         {
-            throw new NotImplementedException();
+            IEnumerable<IPromotion> activePromotions = GetActivePromotions();
+            IPromotionEngine promotionEngine = new PromotionEngine(activePromotions);
+
+            return promotionEngine.ApplyPromotions(cart);
+        }
+
+        private IEnumerable<IPromotion> GetActivePromotions() 
+        {
+            return Enumerable.Empty<IPromotion>();
         }
     }
 }
