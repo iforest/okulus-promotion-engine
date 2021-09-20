@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Okulus.Promotions
 {
@@ -15,7 +12,23 @@ namespace Okulus.Promotions
 
         public decimal ApplyPromotions(ICart cart)
         {
-            throw new NotImplementedException();
+            var promotionContext = new PromotionContext();
+            decimal value = 0;
+
+            foreach (var promotion in Promotions)
+            {
+                value += promotion.Apply(cart, promotionContext);
+            }
+
+            foreach (var cartItem in cart.Items.Values)
+            {
+                if (!promotionContext.ProcessedSkus.ContainsKey(cartItem.SkuId))
+                {
+                    value += cartItem.Quantity * cartItem.UnitPrice;
+                }
+            }
+
+            return value;
         }
     }
 }

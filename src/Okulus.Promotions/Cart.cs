@@ -1,25 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Okulus.Promotions
 {
     public class Cart : ICart
     {
-        private List<CartItem> _items;
+        //private Dictionary<string,CartItem> _items;
 
         public Cart(IEnumerable<CartItem> items)
         {
             _ = items ?? throw new ArgumentNullException(nameof(items));
 
-            _items = new List<CartItem>(items);
-            TotalValue = _items.Sum(item => item.Quantity * item.Value);
+            foreach (var item in items)
+            {
+                Items.Add(item.SkuId, item);
+            }
+
+            TotalValue = Items.Values.Sum(item => item.Quantity * item.UnitPrice);
         }
 
-        public IEnumerable<CartItem> Items => _items.AsReadOnly();
-
+        public IDictionary<string, CartItem> Items { get; } = new Dictionary<string,CartItem>();
+        
         public decimal TotalValue { get; }
     }
 }

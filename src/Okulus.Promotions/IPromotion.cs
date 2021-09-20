@@ -8,8 +8,6 @@ namespace Okulus.Promotions
 {
     public interface IPromotion
     {
-        string Name { get; }
-        string Description { get; }
-        decimal Apply();
+        decimal Apply(ICart cart, PromotionContext promotionContext);
     }
 }
