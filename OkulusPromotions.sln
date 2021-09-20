@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.6.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okulus.Promotions", "src\Okulus.Promotions\Okulus.Promotions.csproj", "{996A0D75-DB4A-4255-A205-52670B16B0EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okulus.Promotions.Tests", "src\Okulus.Promotions.Tests\Okulus.Promotions.Tests.csproj", "{048F7183-E948-4481-8551-BFD1A8BC734A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{996A0D75-DB4A-4255-A205-52670B16B0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996A0D75-DB4A-4255-A205-52670B16B0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996A0D75-DB4A-4255-A205-52670B16B0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996A0D75-DB4A-4255-A205-52670B16B0EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{048F7183-E948-4481-8551-BFD1A8BC734A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{048F7183-E948-4481-8551-BFD1A8BC734A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{048F7183-E948-4481-8551-BFD1A8BC734A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{048F7183-E948-4481-8551-BFD1A8BC734A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C4AA6A0-1679-4812-A521-29D8893EDC61}
+	EndGlobalSection
+EndGlobal
